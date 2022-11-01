@@ -5,6 +5,8 @@ import { initAuthFileSystem } from "./init-auth-files";
 import * as dbClient from "./db-client";
 import * as helpers from "./helpers";
 
+import type { Frontmatter, Post, Response, User } from "./types";
+
 export {
   authenticationHandler,
   dbClient,
@@ -14,3 +16,5 @@ export {
   initAuthFileSystem,
   initBlogFileSystem,
 };
+
+export type { Frontmatter, Post, Response, User };
