@@ -1,0 +1,27 @@
+{
+  "name": "blog-backend",
+  "version": "1.0.0",
+  "description": "A package of a simple blog CMS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christiankozalla/blog-backend.git"
+  },
+  "author": "Christian Kozalla",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/christiankozalla/blog-backend/issues"
+  },
+  "homepage": "https://github.com/christiankozalla/blog-backend#readme",
+  "devDependencies": {
+    "@types/node": "^18.11.9",
+    "typescript": "^4.8.4"
+  },
+  "peerDependencies": {
+    "marked": "~4.0.0",
+    "@types/marked": "~4.0.0"
+  }
+}
