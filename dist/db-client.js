@@ -10,7 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 import { appendFile, readdir, readFile, unlink, writeFile, } from "node:fs/promises";
 import { join } from "node:path";
 import { marked } from "marked";
-import { purgeList } from "./admin/helpers";
+import { purgeList } from "./helpers";
 const sessionsPath = join(process.cwd(), "data", "cms", "sessions.txt");
 const blogDir = join(process.cwd(), "data", "blog");
 export function getUsers() {
@@ -97,15 +97,20 @@ export function writePost(id, post, isDraft) {
             destination = join(blogDir, "drafts", fileName);
         }
         else {
+            destination = join(blogDir, fileName);
             try {
-                destination = join(blogDir, fileName);
                 const draftUrl = join(blogDir, "drafts", fileName);
                 // and delete the draft before publishing
                 yield unlink(draftUrl);
             }
             catch (err) {
-                // file does not exist - log and move on
-                console.log(err.message);
+                if (err instanceof Error) {
+                    // file does not exist - log and move on
+                    console.log(err.message);
+                }
+                else {
+                    console.log(err);
+                }
             }
         }
         return writeFile(destination, serializePost(post), { encoding: "utf8" });
