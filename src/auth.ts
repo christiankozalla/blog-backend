@@ -2,18 +2,21 @@ import { readFile } from "node:fs/promises";
 import { join } from "path";
 import { getSession } from "./helpers.js";
 
+const sessionName = import.meta.env.SESSION_NAME || process.env.SESSION_NAME ||
+  "DEFAULT_SESSION";
+
 export async function authenticationHandler(cookies: Record<string, string>[]) {
   // check if user has a cookie
   const cookie = cookies.find((cookie) =>
     Object.prototype.hasOwnProperty.call(
       cookie,
-      process.env.SESSION_NAME || "DEFAULT_SESSION",
+      sessionName,
     )
   );
 
   if (cookie) {
     const sessionData = await validateSession(
-      cookie[process.env.SESSION_NAME || "DEFAULT_SESSION"],
+      cookie[sessionName],
     );
     return sessionData;
   } else {

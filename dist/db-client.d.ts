@@ -1,4 +1,4 @@
-import type { Post } from "./types";
+import type { Post } from "./types.js";
 export declare function getUsers(): Promise<string>;
 export declare function readSessions(): Promise<string[]>;
 export declare function login(session: string): Promise<void>;

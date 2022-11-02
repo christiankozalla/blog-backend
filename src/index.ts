@@ -5,7 +5,7 @@ import { initAuthFileSystem } from "./init-auth-files.js";
 import * as dbClient from "./db-client.js";
 import * as helpers from "./helpers.js";
 
-import type { Frontmatter, Post, Response, User } from "./types";
+import type { Frontmatter, Post, Response, User } from "./types.js";
 
 export {
   authenticationHandler,

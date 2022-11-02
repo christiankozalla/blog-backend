@@ -1,7 +1,7 @@
 import { createCipheriv, createDecipheriv, randomBytes } from "node:crypto";
 
 const algorithm = "aes-256-ctr";
-const secretKey = process.env.CMS_SECRET;
+const secretKey = import.meta.env.CMS_SECRET || process.env.CMS_SECRET;
 
 function encrypt(text: string) {
   if (typeof secretKey !== "string") {

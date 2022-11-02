@@ -1,6 +1,6 @@
 import { createCipheriv, createDecipheriv, randomBytes } from "node:crypto";
 const algorithm = "aes-256-ctr";
-const secretKey = process.env.CMS_SECRET;
+const secretKey = import.meta.env.CMS_SECRET || process.env.CMS_SECRET;
 function encrypt(text) {
     if (typeof secretKey !== "string") {
         throw new Error("Provide a secret key (32-bit string) to encrypt / decrypt passwords.");

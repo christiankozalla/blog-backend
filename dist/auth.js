@@ -10,12 +10,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 import { readFile } from "node:fs/promises";
 import { join } from "path";
 import { getSession } from "./helpers.js";
+const sessionName = import.meta.env.SESSION_NAME || process.env.SESSION_NAME ||
+    "DEFAULT_SESSION";
 export function authenticationHandler(cookies) {
     return __awaiter(this, void 0, void 0, function* () {
         // check if user has a cookie
-        const cookie = cookies.find((cookie) => Object.prototype.hasOwnProperty.call(cookie, process.env.SESSION_NAME || "DEFAULT_SESSION"));
+        const cookie = cookies.find((cookie) => Object.prototype.hasOwnProperty.call(cookie, sessionName));
         if (cookie) {
-            const sessionData = yield validateSession(cookie[process.env.SESSION_NAME || "DEFAULT_SESSION"]);
+            const sessionData = yield validateSession(cookie[sessionName]);
             return sessionData;
         }
         else {

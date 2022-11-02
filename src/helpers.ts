@@ -1,4 +1,4 @@
-import type { Post } from "./types";
+import type { Post } from "./types.js";
 export type Cookie = Record<string, string>;
 
 export function checkExistingUser(email: string, list: string) {
