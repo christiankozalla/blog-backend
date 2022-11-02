@@ -10,7 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 import { appendFile, readdir, readFile, unlink, writeFile, } from "node:fs/promises";
 import { join } from "node:path";
 import { marked } from "marked";
-import { purgeList } from "./helpers";
+import { purgeList } from "./helpers.js";
 const sessionsPath = join(process.cwd(), "data", "cms", "sessions.txt");
 const blogDir = join(process.cwd(), "data", "blog");
 export function getUsers() {

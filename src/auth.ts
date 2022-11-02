@@ -1,6 +1,6 @@
 import { readFile } from "node:fs/promises";
 import { join } from "path";
-import { getSession } from "./helpers";
+import { getSession } from "./helpers.js";
 
 export async function authenticationHandler(cookies: Record<string, string>[]) {
   // check if user has a cookie

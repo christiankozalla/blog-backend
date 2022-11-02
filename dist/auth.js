@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 import { readFile } from "node:fs/promises";
 import { join } from "path";
-import { getSession } from "./helpers";
+import { getSession } from "./helpers.js";
 export function authenticationHandler(cookies) {
     return __awaiter(this, void 0, void 0, function* () {
         // check if user has a cookie

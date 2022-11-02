@@ -7,7 +7,7 @@ import {
 } from "node:fs/promises";
 import { join } from "node:path";
 import { marked } from "marked";
-import { purgeList } from "./helpers";
+import { purgeList } from "./helpers.js";
 import type { Post, Response } from "./types";
 const sessionsPath = join(process.cwd(), "data", "cms", "sessions.txt");
 const blogDir = join(process.cwd(), "data", "blog");
