@@ -7,10 +7,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var _a, _b;
 import { readFile } from "node:fs/promises";
 import { join } from "path";
 import { getSession } from "./helpers.js";
-const sessionName = import.meta.env.SESSION_NAME || process.env.SESSION_NAME ||
+const sessionName = ((_b = (_a = import.meta) === null || _a === void 0 ? void 0 : _a.env) === null || _b === void 0 ? void 0 : _b.SESSION_NAME) ||
+    process.env.SESSION_NAME ||
     "DEFAULT_SESSION";
 export function authenticationHandler(cookies) {
     return __awaiter(this, void 0, void 0, function* () {

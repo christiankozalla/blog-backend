@@ -2,7 +2,8 @@ import { readFile } from "node:fs/promises";
 import { join } from "path";
 import { getSession } from "./helpers.js";
 
-const sessionName = import.meta.env.SESSION_NAME || process.env.SESSION_NAME ||
+const sessionName = import.meta?.env?.SESSION_NAME ||
+  process.env.SESSION_NAME ||
   "DEFAULT_SESSION";
 
 export async function authenticationHandler(cookies: Record<string, string>[]) {
